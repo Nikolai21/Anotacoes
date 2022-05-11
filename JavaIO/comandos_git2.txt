@@ -1,0 +1,147 @@
+Comandos Git Bash
+________________________________________________________________________________________
+Comandos de configura????o
+
+git config ->
+*sintaxe: git config --local -> apenas para o reposit??rio
+	  git config --global -> para a m??quina como um todo
+
+Configura????o de usu??rio no git:
+git config --local user.name "Seu nome aqui"
+git config --local user.email "seu@email.aqui"
+_________________________________________________________________________________________
+Comandos utilit??rios
+
+git init -> inicia um reposit??rio
+*par??metros:
+	  *--bare: reposit??rio apenas para aloca????o das vers??es alteradas 
+		   (SERVIDOR)
+------------------------------------------------------------------------------------------
+git status -> informa o status atual do reposit??rio
+*sintaxe: git status -> status completo
+	  git status -s ou -short -> vers??o resumida
+		*?? - arquivos n??o rastreados
+		*A - novos arquivos adicionados ao stage (sendo monitorados)
+		*M - arquivos modificados
+		*MM - arquivo modificado, adicionado e modificado novamente
+------------------------------------------------------------------------------------------
+git log -> apresenta a atividade do reposit??rio
+	   -> hash do commit (ID)
+	   -> branch do commit 
+	   -> autor do commit
+	   -> data
+	   -> mensagem do commit
+*sintaxe: git log -> apresenta os dados gerais
+	  git log --oneline -> apresenta os commits de forma resumida
+	  git log -p -> apresenta de forma detalhada                                       |
+		*linhas em vermelho: remo????o 
+	  git log -n [N] -> apresenta os ??ltimos N commits realizados                                             |
+cheatsheet p/ git log: https://devhints.io/git-log                                         |
+-------------------------------------------------------------------------------------------|
+git branch -> comando referente aos ramos de desenvolvimento -> cria um ramo               |
+	      de desenvolvimento diferente, dessa forma compartimentando as                |
+	      diferentes ??reas de um projeto e organizando as vers??es dos c??digos
+*sintaxe: git branch -> apresenta todos os branches existentes
+	  git branch [nome do branch] -> cria um branch
+-------------------------------------------------------------------------------------------
+git merge -> faz a uni??o do branch alvo com o branch atual
+*sintaxe: git merge [branch alvo]
+-------------------------------------------------------------------------------------------
+git rebase -> leva todos os commits de um branch secund??rio para o branch
+	      principal, colocando o branch principal na frente
+*sintaxe: git rebase [nome do branch a ser rebaseado no master/main]
+-------------------------------------------------------------------------------------------
+git checkout -> comando utilizado para navegar entre estados do repositorio
+*sintaxe: git checkout [nome do branch] -> muda para o branch alvo
+	  git checkout -- [nome do arquivo] -> desfaz altera????es realizadas em
+          um arquivo
+	  git checkout [primeiros 7 digitos do hash do commit] -> retorna ao estado
+	  no qual o commit foi realizado. qualquer altera????o efetuada no diret??rio 
+	  ser?? separada para um branch sem nome. para que a altera????o possa ser salva,
+	  o comando abaixo deve ser executado ap??s a execu????o deste comando
+	  git checkout -b [nome do branch] -> cria um novo branch relacionado ao co-
+	  mando acima, para que as altera????es possam ser salvas.
+-------------------------------------------------------------------------------------------
+git restore --staged [nome do arquivo] -> retira o arquivo do stage para ser
+					  commitado, mas n??o desfaz as altera????es
+					  realizadas
+-------------------------------------------------------------------------------------------
+git revert -> reverte o commit realizado
+*sintaxe: git revert [hash do commit]
+-------------------------------------------------------------------------------------------
+git stash -> salva o diretorio em seu estado atual para ser modificado posteriormente
+*sintaxe: git stash -> salva o diret??rio
+	  git stash list -> apresenta a lista de todos os arquivos salvos
+	  git stash apply [n??mero do stash] -> seleciona um dos arquivos no stash
+	  git stash drop -> remove os arquivos selecionados do stash para seguimento
+		            no desenvolvimento
+	  git stash pop -> retira a ??ltima altera????o que est?? na stash
+-------------------------------------------------------------------------------------------
+git diff -> apresenta os arquivos que foram alterados, mas ainda n??o adicionados
+*sintaxe git diff [7 digitos de um commit] [7 digitos de outro commit] -> apresenta a dife
+	 ren??a nas altera????es entre dois commits
+*apresenta????o: + linha adicionada
+	       - linha removida
+	       - linha modificada (vers??o antiga)
+	       + linha modificada (nova vers??o)
+__________________________________________________________________________________________
+Comandos para versionamento:
+
+git add -> adiciona um arquivo para ser monitorado pelo git
+*sintaxe: git add [nome do arquivo]
+	  git add . -> inclui todos os arquivos do diret??rio
+*importante: o git add adiciona o arquivo no estado no qual ele foi adicionado,
+	     ou seja, se for realizada uma altera????o ap??s o git add, ser?? neces-
+	     s??rio realizar um novo git add para sobreescrever o arquivo desatua-
+	     lizado com a vers??o mais nova.
+-------------------------------------------------------------------------------------------
+git rm --cached -> remove um arquivo que estava sendo monitorado
+*sintaxe: git rm --cached [nome do arquivo]
+-------------------------------------------------------------------------------------------
+git commit -> realiza o commit dos arquivos monitorados
+*sintaxe: git commit -m "mensagem descritiva sobre as altera????es realizadas"
+	  -> o par??metro -m informa que uma mensagem ser?? adicionada ao 
+	     commit
+	  git commit -a -> inclui todos os arquivos rastreados, sem a necessidade
+	  de utilizar o comando git add
+-------------------------------------------------------------------------------------------
+git remote -> lista todos os reposit??rios remotos dispon??veis
+*sintaxe: git remote add [nome do reposit??rio] [endere??o do reposit??rio(pode ser 
+	  qualquer endere??o v??lido para um reposit??rio git -> adiciona um novo reposit??rio 
+	  remoto git remote -v verifica os endere??os dos reposit??rios remotos
+-------------------------------------------------------------------------------------------
+git clone -> copia o reposit??rio para um outro reposit??rio (present work directory)
+*sintaxe: git clone [endere??o do reposit??rio a ser clonado] [nome do novo reposit??rio]
+-------------------------------------------------------------------------------------------
+git push -> envia todos os arquivos commitados ao servidor no estado em que foram
+	    salvos.
+*sintaxe: git push [nome do repositorio destino(servidor)] [branch]
+-------------------------------------------------------------------------------------------
+git pull -> puxa todos os arquivos do servidor
+*sintaxe: git pull [nome do servidor] [branch]
+-------------------------------------------------------------------------------------------
+git tag -> apresenta todas as tags dispon??veis. tags servem para marcar um ponto determi-
+	   nado no desenvolvimento de uma aplica????o, como o lan??amento de uma vers??o.
+*sintaxe: git tag -a [nome da tag/vers??o] -> cria uma tag, podemos colocar o par??metro
+	  -m depois do nome da tag para adicionar uma mensagem
+*importante: ao fazer o push de uma tag no github, ela ?? apresentada na p??gina de releases
+
+
+
+
+
+
+
+
+
+
+
+
+
+			   
+							
+			
+
+
+
+
